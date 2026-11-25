@@ -21,14 +21,14 @@ receiver's firmware and protocol version first: from protocol 14.00 (u-blox 7 an
 that (u-blox 6) the older `NAV-POSLLH`, `NAV-VELNED` and `NAV-SOL`. If the receiver stops sending data, for example
 after a power cycle without a backup battery, the platform reports the values as unknown and configures it again.
 
-A [UART bus](/components/uart) with both RX and TX is required, since the configuration is sent to the receiver. Set
+A [UART bus](/components/uart/) with both RX and TX is required, since the configuration is sent to the receiver. Set
 `baud_rate` to the rate the receiver uses: 9600 for u-blox 6 and 7, 38400 for u-blox M10.
 
 ```yaml
 # Example configuration entry
 uart:
-  rx_pin: GPIO16
-  tx_pin: GPIO17
+  rx_pin: GPIOXX
+  tx_pin: GPIOXX
   baud_rate: 9600
 
 gnss:
@@ -48,7 +48,7 @@ sensor:
     name: "Horizontal Accuracy"
 ```
 
-## Configuration variables
+## Configuration Variables
 
 - **rate** (*Optional*, frequency): How often the receiver computes a solution, between `0.1Hz` and `25Hz`. u-blox 6
   receivers reach up to 5 Hz, later ones 10 Hz or more; a receiver that cannot use the rate rejects it and keeps its
