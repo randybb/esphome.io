@@ -33,6 +33,7 @@ time:
 ## Platforms
 
 - [NMEA](/components/gnss/nmea/): any receiver that sends standard NMEA 0183 sentences.
+- [UBX](/components/gnss/ubx/): u-blox receivers, set up and read in the binary UBX protocol.
 
 ## Configuration Variables
 
@@ -66,6 +67,11 @@ sensor:
   - `course`: Course over ground in degrees from true north.
   - `satellites`: Number of satellites used in the solution.
   - `hdop`: Horizontal dilution of precision.
+  - `horizontal_accuracy`: The receiver's estimate of its horizontal position error in meters.
+  - `vertical_accuracy`: The receiver's estimate of its altitude error in meters.
+
+  Not every platform reports every value; `nmea` reports no accuracy. A value the receiver does not report,
+  and position, speed and course while it has no fix, are published as unknown (`NaN`) on `ubx`.
 
 - **gnss_id** (*Optional*, [ID](/guides/configuration-types/#id)): The receiver to read from. Only needed when
   there is more than one.
@@ -166,5 +172,6 @@ lambda that already uses `get_data()` of `gps` only needs the receiver's ID and 
 
 - [Sensor Filters](/components/sensor/#sensor-filters)
 - [NMEA GNSS platform](/components/gnss/nmea/)
+- [UBX GNSS platform](/components/gnss/ubx/)
 - [GNSS Time Source](/components/time/gnss/)
 - <APIRef text="gnss.h" path="gnss/gnss.h" />
