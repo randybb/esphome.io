@@ -20,6 +20,7 @@ messages it reads, and sets the rate and model. It reads the
 receiver's firmware and protocol version first: from protocol 14.00 (u-blox 7 and later) it uses `NAV-PVT`, before
 that (u-blox 6) the older `NAV-POSLLH`, `NAV-VELNED` and `NAV-SOL`. If the receiver stops sending data, for example
 after a power cycle without a backup battery, the platform reports the values as unknown and configures it again.
+While the receiver has no fix, position, altitude, speed, course and accuracy have no value (`NaN`).
 
 A [UART bus](/components/uart/) with both RX and TX is required, since the configuration is sent to the receiver. Set
 `baud_rate` to the rate the receiver uses: 9600 for u-blox 6 and 7, 38400 for u-blox M10.

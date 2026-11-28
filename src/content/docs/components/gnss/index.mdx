@@ -70,8 +70,7 @@ sensor:
   - `horizontal_accuracy`: The receiver's estimate of its horizontal position error in meters.
   - `vertical_accuracy`: The receiver's estimate of its altitude error in meters.
 
-  Not every platform reports every value; `nmea` reports no accuracy. A value the receiver does not report,
-  and position, speed and course while it has no fix, are published as unknown (`NaN`) on `ubx`.
+  Not every platform reports every value; `nmea` reports no accuracy.
 
 - **gnss_id** (*Optional*, [ID](/guides/configuration-types/#id)): The receiver to read from. Only needed when
   there is more than one.
